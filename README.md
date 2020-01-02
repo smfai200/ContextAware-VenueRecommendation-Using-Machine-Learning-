@@ -1,21 +1,12 @@
+[![Build Status](http://img.shields.io/travis/badges/badgerbadgerbadger.svg?style=flat-square)](https://travis-ci.org/badges/badgerbadgerbadger)  [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org) [![Badges](http://img.shields.io/:badges-9/9-ff6799.svg?style=flat-square)]
+
 # Context-Aware Venue Recommendation Using Machine Learning-
 
-> A context-aware recommender system recommends user the items that relevant to the current contexts such as time, location or weather. Generally, the venue recommender system repeatedly suggests the same places every time that user requests for the attractive venues around the location. In fact, individual user has diverse interested in visiting places based on personalized activities according to time of day. To improve the venue recommendation, this paper proposes a context-aware venue recommender system. The contexts focus on the location of device and time of day.
+> A context-aware recommender system recommends user the items that relevant to the current contexts such as time, location or weather. Generally, the venue recommender system repeatedly suggests the same places every time that user requests for the attractive venues around the location. In fact, individual user has diverse interested in visiting places based on personalized activities according to time of day. To improve the venue recommendation, We propose a context-aware venue recommender system. The contexts focus on the location of device and time of day. 
+> The result reveals that the proposed method improves the recommended venues every time user has an activity with the application, which based on the contexts and the personalized activities of an individual user.
 
-**Badges will go here**
 
-- build status
-- issues (waffle.io maybe)
-- devDependencies
-- npm package
-- coverage
-- slack
-- downloads
-- gitter chat
-- license
-- etc.
-
-[![Build Status](http://img.shields.io/travis/badges/badgerbadgerbadger.svg?style=flat-square)](https://travis-ci.org/badges/badgerbadgerbadger) [![Dependency Status](http://img.shields.io/gemnasium/badges/badgerbadgerbadger.svg?style=flat-square)](https://gemnasium.com/badges/badgerbadgerbadger) [![Coverage Status](http://img.shields.io/coveralls/badges/badgerbadgerbadger.svg?style=flat-square)](https://coveralls.io/r/badges/badgerbadgerbadger) [![Code Climate](http://img.shields.io/codeclimate/github/badges/badgerbadgerbadger.svg?style=flat-square)](https://codeclimate.com/github/badges/badgerbadgerbadger) [![Github Issues](http://githubbadges.herokuapp.com/badges/badgerbadgerbadger/issues.svg?style=flat-square)](https://github.com/badges/badgerbadgerbadger/issues) [![Pending Pull-Requests](http://githubbadges.herokuapp.com/badges/badgerbadgerbadger/pulls.svg?style=flat-square)](https://github.com/badges/badgerbadgerbadger/pulls) [![Gem Version](http://img.shields.io/gem/v/badgerbadgerbadger.svg?style=flat-square)](https://rubygems.org/gems/badgerbadgerbadger) [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org) [![Badges](http://img.shields.io/:badges-9/9-ff6799.svg?style=flat-square)](https://github.com/badges/badgerbadgerbadger)
+(https://github.com/badges/badgerbadgerbadger)
 
 - For more on these wonderful ~~badgers~~ badges, refer to <a href="http://badges.github.io/badgerbadgerbadger/" target="_blank">`badgerbadgerbadger`</a>.
 
