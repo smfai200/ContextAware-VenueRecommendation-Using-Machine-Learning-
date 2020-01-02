@@ -2,6 +2,8 @@
 
 # Context-Aware Venue Recommendation Using Machine Learning-
 
+DATASET: https://sites.google.com/site/yangdingqi/home/foursquare-dataset
+
 > A context-aware recommender system recommends user the items that relevant to the current contexts such as time, location or weather. Generally, the venue recommender system repeatedly suggests the same places every time that user requests for the attractive venues around the location. In fact, individual user has diverse interested in visiting places based on personalized activities according to time of day. To improve the venue recommendation, We propose a context-aware venue recommender system. The contexts focus on the location of device and time of day. 
 > The result reveals that the proposed method improves the recommended venues every time user has an activity with the application, which based on the contexts and the personalized activities of an individual user.
 
