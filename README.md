@@ -14,20 +14,19 @@
 > > b)	About our Dataset:
 > > > >	We have used foursquare dataset publicly available on Internet. The Dataset contains check-ins in NYC and Tokyo collected for about 10 month (from 12 April 2012 to 16 February 2013). It contains 227,428 check-ins in New York city and 573,703 check-ins in Tokyo. Each 
 > > > >check-in is associated with its time stamp, its GPS coordinates and its semantic meaning (represented by fine-grained venue-categories). This dataset is originally used for studying the spatial-temporal regularity of user activity in LBSNs. The attributes of the dataset are:
-o	User ID (anonymized)
-o	Venue ID (Foursquare)
-o	Venue category ID (Foursquare)
-o	Venue category name (Foursquare)
-o	Latitude
-o	Longitude
-o	Timezone offset in minutes 
-	Proposed Methodology:
-	 
+-	User ID (anonymized)
+-	Venue ID (Foursquare)
+-	Venue category ID (Foursquare)
+-	Venue category name (Foursquare)
+-	Latitude
+-	Longitude
+-	Timezone offset in minutes 
 
-Cold Start Problem:
+# 2. Proposed Methodology:	 
+> > Cold Start Problem:
 	The term derives from cars. When it’s really cold, the engine has problems with starting up, but once it reaches its optimal operating temperature, it will run smoothly. With recommendation engines, the “cold start” simply means that the circumstances are not yet optimal for the engine to provide the best possible results. Our dataset was facing cold start problem as we did not had Ratings, Review or any other information. To solve this problem, We derived a new attribute from the data by calculating User visits to a specific Venue.
 Visualization & Exploration of Dataset: 
-i)	Summary of The Dataset
+-	Summary of The Dataset
 
                     
 
