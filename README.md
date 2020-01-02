@@ -7,7 +7,7 @@
 
 
 # 1. DATA ANALYSIS:
-> > i)	Data Collection:
+    i)	Data Collection:
 > > >  a)Platform for Dataset:
 > > > > Foursquare was created in 2009 and it has quickly become the most popular location-based service, with more than 55 million worldwide with over 6 billion check-ins as of January 2019. On Foursquare, users can explore interesting venues such as restaurants, museums, popular bars, department stores with specials (e.g., discounts, coupons), etc., around their current locations. Users can also add other users as their friends just as they do in traditional social networks and they can also create friendship links with users in the nearby venues. Foursquare users can create and add a venue/Point of Interest (POI; we use both terminologies in this dissertation) in Foursquare and they can click “Check in” at the venues where they currently are by using a Foursquare mobile App and share such information with others. Users can choose either public “Checkin” or private “Check in”, and they can earn points by checking in. A user can explore venues around him to ﬁnd interesting ones and view other people who are checked in there. Users can also easily add friends as they usually do in traditional social networks such as Facebook. They can also choose to post their Foursquare check-ins on Facebook or Twitter in order to share their location information or activity information with more users.
 
