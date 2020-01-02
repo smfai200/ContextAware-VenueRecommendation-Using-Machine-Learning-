@@ -1,4 +1,4 @@
-[![Build Status](http://img.shields.io/travis/badges/badgerbadgerbadger.svg?style=flat-square)](https://travis-ci.org/badges/badgerbadgerbadger)  [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org) [![Badges](http://img.shields.io/:badges-9/9-ff6799.svg?style=flat-square)]
+[![Build Status](http://img.shields.io/travis/badges/badgerbadgerbadger.svg?style=flat-square)](https://travis-ci.org/badges/badgerbadgerbadger)  [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
 
 # Context-Aware Venue Recommendation Using Machine Learning-
 
@@ -6,174 +6,101 @@
 > The result reveals that the proposed method improves the recommended venues every time user has an activity with the application, which based on the contexts and the personalized activities of an individual user.
 
 
-(https://github.com/badges/badgerbadgerbadger)
-
-- For more on these wonderful ~~badgers~~ badges, refer to <a href="http://badges.github.io/badgerbadgerbadger/" target="_blank">`badgerbadgerbadger`</a>.
-
-***INSERT ANOTHER GRAPHIC HERE***
-
 [![INSERT YOUR GRAPHIC HERE](http://i.imgur.com/dt8AUb6.png)]()
+DATA ANALYSIS:
+i)	Data Collection:
+a)	Platform for Dataset:
+Foursquare was created in 2009 and it has quickly become the most popular location-based service, with more than 55 million worldwide with over 6 billion check-ins as of January 2019. On Foursquare, users can explore interesting venues such as restaurants, museums, popular bars, department stores with specials (e.g., discounts, coupons), etc., around their current locations. Users can also add other users as their friends just as they do in traditional social networks and they can also create friendship links with users in the nearby venues. Foursquare users can create and add a venue/Point of Interest (POI; we use both terminologies in this dissertation) in Foursquare and they can click “Check in” at the venues where they currently are by using a Foursquare mobile App and share such information with others. Users can choose either public “Checkin” or private “Check in”, and they can earn points by checking in. A user can explore venues around him to ﬁnd interesting ones and view other people who are checked in there. Users can also easily add friends as they usually do in traditional social networks such as Facebook. They can also choose to post their Foursquare check-ins on Facebook or Twitter in order to share their location information or activity information with more users.
+b)	About our Dataset:
+	We have used foursquare dataset publicly available on Internet. The Dataset contains check-ins in NYC and Tokyo collected for about 10 month (from 12 April 2012 to 16 February 2013). It contains 227,428 check-ins in New York city and 573,703 check-ins in Tokyo. Each 
+check-in is associated with its time stamp, its GPS coordinates and its semantic meaning (represented by fine-grained venue-categories). This dataset is originally used for studying the spatial-temporal regularity of user activity in LBSNs. The attributes of the dataset are:
+o	User ID (anonymized)
+o	Venue ID (Foursquare)
+o	Venue category ID (Foursquare)
+o	Venue category name (Foursquare)
+o	Latitude
+o	Longitude
+o	Timezone offset in minutes 
+	Proposed Methodology:
+	 
 
-- Most people will glance at your `README`, *maybe* star it, and leave
-- Ergo, people should understand instantly what your project is about based on your repo
+Cold Start Problem:
+	The term derives from cars. When it’s really cold, the engine has problems with starting up, but once it reaches its optimal operating temperature, it will run smoothly. With recommendation engines, the “cold start” simply means that the circumstances are not yet optimal for the engine to provide the best possible results. Our dataset was facing cold start problem as we did not had Ratings, Review or any other information. To solve this problem, We derived a new attribute from the data by calculating User visits to a specific Venue.
+Visualization & Exploration of Dataset: 
+i)	Summary of The Dataset
 
-> Tips
+                    
 
-- HAVE WHITE SPACE
-- MAKE IT PRETTY
-- GIFS ARE REALLY COOL
 
-> GIF Tools
 
-- Use <a href="http://recordit.co/" target="_blank">**Recordit**</a> to create quicks screencasts of your desktop and export them as `GIF`s.
-- For terminal sessions, there's <a href="https://github.com/chjj/ttystudio" target="_blank">**ttystudio**</a> which also supports exporting `GIF`s.
 
-**Recordit**
 
-![Recordit GIF](http://g.recordit.co/iLN6A0vSD8.gif)
 
-**ttystudio**
+ii)	check-ins in NYC and Tokyo
+        
 
-![ttystudio GIF](https://raw.githubusercontent.com/chjj/ttystudio/master/img/example.gif)
 
----
+iii)	Hot Venues and Categories:
 
-## Table of Contents (Optional)
 
-> If your `README` has a lot of info, section headers might be nice.
 
-- [Installation](#installation)
-- [Features](#features)
-- [Contributing](#contributing)
-- [Team](#team)
-- [FAQ](#faq)
-- [Support](#support)
-- [License](#license)
 
 
----
 
-## Example (Optional)
 
-```javascript
-// code away!
 
-let generateProject = project => {
-  let code = [];
-  for (let js = 0; js < project.length; js++) {
-    code.push(js);
-  }
-};
-```
+iv)	Top Categories
 
----
+ 
+	
+Context Clustering:
+a)	Minibatch K Means Clustering:
+Mini Batch K-means algorithm’s main idea is to use small random batches of data of a fixed size, so they can be stored in memory. Each iteration a new random sample from the dataset is obtained and used to update the clusters and this is repeated until convergence. Each mini batch updates the clusters using a convex combination of the values of the prototypes and the data, applying a learning rate that decreases with the number of iterations.
+Given: k, mini-batch size b, iterations t, data set X
+Initialize each c ∈ C with an x picked randomly from X
+v ← 0
+for i = 1 to t do
+      M ← b examples picked randomly from X
+      for x ∈ M do
+            d[x] ← f (C, x)           // Cache the center nearest to x
+      end for
+      for x ∈ M do
+            c ← d[x]                    // Get cached center for this x
+            v[c] ← v[c] + 1         // Update per-center counts
+            η ← 1 / v[c]              // Get per-center learning rate
+            c ← (1 − η)c + ηx      // Take gradient step
+      end for
+end for
+Results:
+	 
+Minibatch Evaluation by Euclidean: 0.90903859
+b)	DBSCAN:
+Density-based spatial clustering of applications with noise (DBSCAN) is a well-known data clustering algorithm that is commonly used in data mining and machine learning. K-Means is easy to understand and implement in practice, the algorithm has no notion of outliers, so all points are assigned to a cluster even if they do not belong in any. In the domain of anomaly detection, this causes problems as anomalous points will be assigned to the same cluster as “normal” data points. The anomalous points pull the cluster centroid towards them, making it harder to classify them as anomalous points.
+Unlike K-Means, DBSCAN does not require the number of clusters as a parameter. Rather it infers the number of clusters based on the data, and it can discover clusters of arbitrary shape (for comparison, K-Means usually discovers spherical clusters). 
+ 
+Results:
+  
+Evaluation Accuracy: 0.09096141
 
-## Installation
+Similarity Between Users and Venue:
+a)	Matrix Factorization:
 
-- All the `code` required to get started
-- Images of what it should look like
+b)	When a user gives feed back to a certain movie they saw (say they can rate from one to five), this collection of feedback can be represented in a form of a matrix. Where each row represents each users, while each column represents different movies. Obviously the matrix will be sparse since not everyone is going to watch every movies, (we all have different taste when it comes to movies).
 
-### Clone
+c)	One strength of matrix factorization is the fact that it can incorporate implicit feedback, information that are not directly given but can be derived by analyzing user behavior. Using this strength we can estimate if a user is going to like a movie that (he/she) never saw. And if that estimated rating is high, we can recommend that movie to the user.
+d)	 
 
-- Clone this repo to your local machine using `https://github.com/fvcproductions/SOMEREPO`
+The above image does an excellent job of summarizing, the core idea behind matrix factorization. Let there be matrix A with dimensionality of (m, n) this matrix can be viewed as a dot product between two matrix with each matrices having dimensions of (m, k) and (k, n).
 
-### Setup
+e)	Random Forest Classifier:
+A random forest consists of multiple random decision trees. Two types of randomness are built into the trees. First, each tree is built on a random sample from the original data. Second, at each tree node, a subset of features are randomly selected to generate the best split. We use the dataset below to illustrate how to build a random forest tree. Note Class = XOR(X1, X2). X3 is made identical as X2 (for illustrative purposes in later sections).
+ 
+Just like we calculate cosine similarity Random Forests can be used for unsupervised learning. These unsupervised Random Forests output similarity matrices based on proximity. The only caveat is that the Random Forest similarity is based on whole data, i.e. it's not pairwise calculated, you must give it the whole data for it to learn the similarity, as it's based on the number of times two given observations ended on the same leaf in the trees. In other words, this means that you'd need to recalculate the whole proximity matrix for all data every time a new observation is added.
+Results:
+	  
 
-- If you want more syntax highlighting, format your code like this:
+Recommendation Part:
+	In this part of all we get the current location (latitude, longitude) on the basis of which DBSCAN and minibatch k-mean clustering is applied and get a cluster number that is used to get the venue from the data set. Then on basis of his preference category we get the most similar venues in that particular category from the random forest classifier. After combining all this data, we filter the data based on user’s visits that will recommend the top venues for him.
+ 
 
-> update and install this package first
 
-```shell
-$ brew update
-$ brew install fvcproductions
-```
-
-> now install npm and bower packages
-
-```shell
-$ npm install
-$ bower install
-```
-
-- For all the possible languages that support syntax highlithing on GitHub (which is basically all of them), refer <a href="https://github.com/github/linguist/blob/master/lib/linguist/languages.yml" target="_blank">here</a>.
-
----
-
-## Features
-## Usage (Optional)
-## Documentation (Optional)
-## Tests (Optional)
-
-- Going into more detail on code and technologies used
-- I utilized this nifty <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet" target="_blank">Markdown Cheatsheet</a> for this sample `README`.
-
----
-
-## Contributing
-
-> To get started...
-
-### Step 1
-
-- **Option 1**
-    - 🍴 Fork this repo!
-
-- **Option 2**
-    - 👯 Clone this repo to your local machine using `https://github.com/joanaz/HireDot2.git`
-
-### Step 2
-
-- **HACK AWAY!** 🔨🔨🔨
-
-### Step 3
-
-- 🔃 Create a new pull request using <a href="https://github.com/joanaz/HireDot2/compare/" target="_blank">`https://github.com/joanaz/HireDot2/compare/`</a>.
-
----
-
-## Team
-
-> Or Contributors/People
-
-| <a href="http://fvcproductions.com" target="_blank">**FVCproductions**</a> | <a href="http://fvcproductions.com" target="_blank">**FVCproductions**</a> | <a href="http://fvcproductions.com" target="_blank">**FVCproductions**</a> |
-| :---: |:---:| :---:|
-| [![FVCproductions](https://avatars1.githubusercontent.com/u/4284691?v=3&s=200)](http://fvcproductions.com)    | [![FVCproductions](https://avatars1.githubusercontent.com/u/4284691?v=3&s=200)](http://fvcproductions.com) | [![FVCproductions](https://avatars1.githubusercontent.com/u/4284691?v=3&s=200)](http://fvcproductions.com)  |
-| <a href="http://github.com/fvcproductions" target="_blank">`github.com/fvcproductions`</a> | <a href="http://github.com/fvcproductions" target="_blank">`github.com/fvcproductions`</a> | <a href="http://github.com/fvcproductions" target="_blank">`github.com/fvcproductions`</a> |
-
-- You can just grab their GitHub profile image URL
-- You should probably resize their picture using `?s=200` at the end of the image URL.
-
----
-
-## FAQ
-
-- **How do I do *specifically* so and so?**
-    - No problem! Just do this.
-
----
-
-## Support
-
-Reach out to me at one of the following places!
-
-- Website at <a href="http://fvcproductions.com" target="_blank">`fvcproductions.com`</a>
-- Twitter at <a href="http://twitter.com/fvcproductions" target="_blank">`@fvcproductions`</a>
-- Insert more social links here.
-
----
-
-## Donations (Optional)
-
-- You could include a <a href="https://cdn.rawgit.com/gratipay/gratipay-badge/2.3.0/dist/gratipay.png" target="_blank">Gratipay</a> link as well.
-
-[![Support via Gratipay](https://cdn.rawgit.com/gratipay/gratipay-badge/2.3.0/dist/gratipay.png)](https://gratipay.com/fvcproductions/)
-
-
----
-
-## License
-
-[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
-
-- **[MIT license](http://opensource.org/licenses/mit-license.php)**
-- Copyright 2015 © <a href="http://fvcproductions.com" target="_blank">FVCproductions</a>.
